@@ -93,3 +93,5 @@ Maximum points - **240**
 - [ ] **-20** too primitive (ugly for 2019) design / UX
 
 **40+120+70 = 230**
+
+https://relaxed-lichterman-9ef3a9.netlify.com/ru/
