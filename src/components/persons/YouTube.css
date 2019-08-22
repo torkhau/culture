@@ -1,0 +1,6 @@
+
+@import './modal-video.min.css';
+
+.modal-video-close-btn:hover {
+  cursor: pointer;
+}

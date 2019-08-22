@@ -1,0 +1,19 @@
+.developers-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, calc(var(--page-max-width) / 5));
+  grid-row-gap: 15px;
+  justify-content: center;
+}
+
+.description {
+  min-height: 380px;
+  font-family: Calibri, sans-serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  text-indent: 2rem;
+}
+
+.photographer-of-the-day-wrapper {
+  display: flex;
+  justify-content: center;
+}

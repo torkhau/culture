@@ -1,0 +1,47 @@
+{
+  "name": "gatsby-starter-hello-world",
+  "private": true,
+  "description": "A simplified bare-bones starter for Gatsby",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.3.1",
+    "@material-ui/styles": "^4.3.0",
+    "gatsby": "^2.13.39",
+    "gatsby-plugin-intl": "^0.2.7",
+    "gatsby-plugin-material-ui": "^2.1.5",
+    "gatsby-plugin-netlify-cms": "^4.1.6",
+    "gatsby-source-filesystem": "^2.1.7",
+    "gatsby-transformer-remark": "^2.6.10",
+    "netlify-cms-app": "^2.9.7",
+    "react": "^16.8.6",
+    "react-alice-carousel": "^1.15.2",
+    "react-dom": "^16.8.6",
+    "react-lightbox-component": "^1.2.1",
+    "react-modal-video": "^1.2.2",
+    "react-yandex-maps": "^4.0.1",
+    "vertical-timeline-component-for-react": "^1.0.6"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-react": "^7.14.3",
+    "prettier": "^1.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}

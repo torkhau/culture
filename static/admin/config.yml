@@ -1,0 +1,327 @@
+backend:
+  name: github
+  repo: ponyborn/culture-portal
+
+media_folder: static/assets # Folder path where uploaded files should be saved, relative to the base of the repo
+public_folder: assets # Folder path where uploaded files will be accessed, relative to the base of the built site
+
+collections: # A list of collections the CMS should be able to edit
+  - name: photographers # Used in routes, ie.: /admin/collections/:slug/edit
+    label: Photographers # Used in the UI
+    label_singular: Photographer # Used in the UI, ie: "New Post"
+    folder: 'src/cms/photographers' # Represents a collection of one or more files with the same format, fields, and configuration options
+    create: true # Allows users to add new entries
+    identifier_field: name # Name of the field used to identify an entry
+    fields:
+      - name: type
+        label: Type
+        widget: hidden
+        default: photographer
+      - name: name # Is not in en object because it's used as identifier
+        label: Photographer's name
+        hint: Full name in english.
+        widget: string
+      - name: picture
+        label: Picture of the photographer
+        widget: image
+        required: false
+        default: '/assets/default-person.jpg'
+      - name: birthplace
+        label: Place of Birth
+        hint: Place of Birth in english
+        widget: string
+      - name: birthDate
+        label: Birthdate
+        hint: 'Date format: MM/DD/YYYY.'
+        widget: date
+        default: ''
+        format: MM/DD/YYYY
+        dateFormat: MM/DD/YYYY
+      - name: deathDate
+        label: Date of death
+        hint: 'Date format: MM/DD/YYYY.'
+        widget: date
+        default: ''
+        format: MM/DD/YYYY
+        dateFormat: MM/DD/YYYY
+        required: false
+      - name: gallery
+        label: Pictures
+        label_singular: Picture
+        hint: Photographer's pictures and pictures of his/her work.
+        widget: list
+        required: false
+        fields:
+          - name: title
+            label: Title
+            widget: text
+          - name: picture
+            label: Picture
+            widget: image
+      - name: videoId
+        label: Youtube video id
+        hint: Youtube video about the author / works / period of time author lived.
+        widget: string
+        required: false
+      - name: en
+        label: Info in English
+        widget: object
+        fields:
+          - name: lifeEvents
+            label: Life events
+            label_singular: Life event
+            hint: Used to create a biography in a form of a timeline.
+            widget: list
+            fields:
+              - name: date
+                label: Event date
+                hint: 'Date format: MM/DD/YYYY.'
+                widget: date
+                default: ''
+                format: MM/DD/YYYY
+                dateFormat: MM/DD/YYYY
+              - name: desctiption
+                label: Event description
+                widget: text
+          - name: works
+            label: Photographer's works
+            label_singular: Photographer's work
+            hint:
+              "List with the names of photographer's works and the dates of their creation. Add pictures, exhibitions, etc.
+              Pictures themselves should go to the 'pictures' list."
+            widget: list
+            fields:
+              - name: date
+                label: Date of creation
+                hint: 'Date format: MM/DD/YYYY.'
+                widget: date
+                default: ''
+                format: MM/DD/YYYY
+                dateFormat: MM/DD/YYYY
+              - name: title
+                label: Work's title
+                widget: text
+          - name: coordinates
+            label: Coordinates
+            label_singular: Coordinates
+            hint: Map coordinates for places of author's major activity.
+            widget: list
+            required: false
+            fields:
+              - name: description
+                label: Description
+                hint: Description of a place.
+                widget: text
+              - name: latitude
+                label: Latitude
+                hint: Latitude in decimal degrees format [-90;90]. Use dot as a delimeter.
+                widget: 'number'
+                valueType: 'float'
+                min: -90
+                max: 90
+                step: 1
+              - name: longitude
+                label: Longitude
+                hint: Longitude in decimal degrees format [-180;180]. Use dot as a delimeter.
+                widget: 'number'
+                valueType: 'float'
+                min: -180
+                max: 180
+                step: 1
+      - name: ru
+        label: Информация на русском
+        widget: object
+        fields:
+          - name: name
+            label: Имя фотографа
+            hint: ФИО фотографа.
+            widget: string
+          - name: birthplace
+            label: Место рождения
+            hint: Место рождения фотографа
+            widget: string
+          - name: lifeEvents
+            label: События в жизни
+            label_singular: Событие в жизни
+            hint: Используется для создания биографии в виде таймлайна.
+            widget: list
+            fields:
+              - name: date
+                label: Дата события
+                hint: 'Формат даты: MM/DD/YYYY'
+                widget: date
+                default: ''
+                format: MM/DD/YYYY
+                dateFormat: MM/DD/YYYY
+              - name: desctiption
+                label: Описание события
+                widget: text
+          - name: works
+            label: Работы фотографа
+            label_singular: Работа фотографа
+            hint:
+              "Список названий работ фотографа и место их создания. Добавляйте фото, фотовыставки и т.д.
+              Сами фотографии следует добавлять в галлерею (список 'pictures')."
+            widget: list
+            fields:
+              - name: date
+                label: Дата создания
+                hint: 'Формат даты: MM/DD/YYYY'
+                widget: date
+                default: ''
+                format: MM/DD/YYYY
+                dateFormat: MM/DD/YYYY
+              - name: title
+                label: Название работы
+                widget: text
+          - name: coordinates
+            label: Координаты
+            label_singular: Координаты
+            hint: Координаты мест, связанных с фотографом.
+            widget: list
+            required: false
+            fields:
+              - name: description
+                label: Описание
+                hint: Описание места.
+                widget: text
+              - name: latitude
+                label: Широта
+                hint: Широта в формате decimal degrees [-90;90]. Для разделения знаков используйте точку.
+                widget: 'number'
+                valueType: 'float'
+                min: -90
+                max: 90
+                step: 1
+              - name: 'longitude'
+                label: 'Долгота'
+                hint: Долгота в формате decimal degrees [-180;180]. Для разделения знаков используйте точку.
+                widget: 'number'
+                valueType: 'float'
+                min: -180
+                max: 180
+                step: 1
+      - name: be
+        label: Інфармацыя па-беларуску
+        widget: object
+        fields:
+          - name: name
+            label: Імя фатографа
+            hint: Прозвішча, імя, імя па бацьку.
+            widget: string
+          - name: birthplace
+            label: Месца нараджэння
+            hint: Месца нараджэння фатографа
+            widget: string
+          - name: lifeEvents
+            label: Падзеі ў жыцці
+            label_singular: Падзея ў жыцці
+            hint: Выкарыстоўваецца для стварэння біяграфіі ў выглядзе таймлайну.
+            widget: list
+            fields:
+              - name: date
+                label: Дата падзеі
+                hint: 'Фармат даты: MM/DD/YYYY'
+                widget: date
+                default: ''
+                format: MM/DD/YYYY
+                dateFormat: MM/DD/YYYY
+              - name: desctiption
+                label: Апісанне падзеі
+                widget: text
+          - name: works
+            label: Работы фатографа
+            label_singular: Работа фатографа
+            hint:
+              "Спіс назваў работ фатографа і месца іх стварэння. Дадавайце фота, фотавыставы і г.д.
+              Самі фатаграфіі варта дадаваць у галерэю (спіс 'pictures')."
+            widget: list
+            fields:
+              - name: date
+                label: Дата стварэння
+                hint: 'Фармат даты: MM/DD/YYYY'
+                widget: date
+                default: ''
+                format: MM/DD/YYYY
+                dateFormat: MM/DD/YYYY
+              - name: title
+                label: Назва работы
+                widget: text
+          - name: coordinates
+            label: Каардынаты
+            label_singular: Каардынаты
+            hint: Каардынаты месцаў, звязаных з фатографам.
+            widget: list
+            required: false
+            fields:
+              - name: description
+                label: Апісанне
+                hint: Апісанне месца.
+                widget: text
+              - name: latitude
+                label: Шырата
+                hint: Шырата ў фармаце decimal degrees [-90;90]. Для падзелу знакаў выкарыстоўвайце кропку.
+                widget: 'number'
+                valueType: 'float'
+                min: -90
+                max: 90
+                step: 1
+              - name: 'longitude'
+                label: 'Даўгата'
+                hint: Даўгата ў фармаце decimal degrees [-180;180]. Для падзелу знакаў выкарыстоўвайце кропку.
+                widget: 'number'
+                valueType: 'float'
+                min: -180
+                max: 180
+                step: 1
+  - name: pages
+    label: Pages
+    files:
+      - name: mainPage
+        label: Main Page
+        file: 'src/cms/pages/main-page.md'
+        fields:
+          - name: title
+            label: title
+            widget: string
+          - name: enSiteDescription
+            label: Site description in english
+            widget: markdown
+          - name: ruSiteDescription
+            label: Описание сайта на русском
+            widget: markdown
+          - name: beSiteDescription
+            label: Апісанне сайта па-беларуску
+            widget: markdown
+  - name: developers
+    label: Developers
+    label_singular: Developer
+    folder: 'src/cms/developers'
+    create: true
+    identifier_field: enName
+    fields:
+      - name: type
+        label: Type
+        widget: hidden
+        default: developer
+      - name: enName
+        label: Developer's name
+        hint: Full name in english
+        widget: string
+      - name: ruName
+        label: Имя разработчика
+        hint: Полное имя на русском
+        widget: string
+      - name: beName
+        label: Імя распрацоўшчыка
+        hint: Поўнае імя па-беларуску
+        widget: string
+      - name: githubName
+        label: Developer's github username
+        hint: Full username without @ symbol.
+        widget: string
+      - name: picture
+        label: Picture of the developer
+        widget: image
+        required: false
+        default: '/assets/default-person.jpg'

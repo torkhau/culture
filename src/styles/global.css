@@ -1,0 +1,21 @@
+:root {
+  --page-max-width: 960px;
+  --link-color: #ffa458;
+  --link-hover-color: #f8b985;
+  --accent-color: lightslategrey;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: whitesmoke;
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+}
